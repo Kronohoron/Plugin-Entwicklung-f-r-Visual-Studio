@@ -1,0 +1,4 @@
+C:\Users\Krono\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Company\PauseTest\1.0\\extension.vsixmanifest
+C:\Users\Krono\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Company\PauseTest\1.0\\PauseTest.dll
+C:\Users\Krono\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Company\PauseTest\1.0\\PauseTest.pdb
+C:\Users\Krono\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Company\PauseTest\1.0\\PauseTest.pkgdef
