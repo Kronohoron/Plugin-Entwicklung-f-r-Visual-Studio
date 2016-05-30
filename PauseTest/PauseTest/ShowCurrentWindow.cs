@@ -15,11 +15,15 @@ using System.Runtime.InteropServices;
 
 namespace PauseTest
 {
+
     /// <summary>
     /// Command handler
     /// </summary>
     internal sealed class ShowCurrentWindow
     {
+        private DTE2 dte;
+        private string nowActiveWindow;
+        private string lastActiveWindow;
         /// <summary>
         /// Command ID.
         /// </summary>
@@ -56,6 +60,15 @@ namespace PauseTest
                 var menuItem = new MenuCommand(this.MenuItemCallback, menuCommandID);
                 commandService.AddCommand(menuItem);
             }
+
+            dte = Marshal.GetActiveObject("VisualStudio.DTE.14.0") as DTE2;
+            dte.Events.WindowEvents.WindowActivated += testlistener;
+        }
+
+        private void testlistener(Window GotFocus, Window LostFocus)
+        {
+            nowActiveWindow = GotFocus.Caption;
+            lastActiveWindow = LostFocus.Caption;
         }
 
         /// <summary>
@@ -97,15 +110,26 @@ namespace PauseTest
         private void MenuItemCallback(object sender, EventArgs e)
         {
 
-            DTE2 dte = Marshal.GetActiveObject("VisualStudio.DTE.14.0") as DTE2;
-
             string message;
             if (dte != null)
-                message = dte.ActiveWindow.Caption;
+                message = "Active: " + dte.ActiveDocument.ActiveWindow.Caption;
             else
                 message = "mist";
 
             string title = "ShowCurrentWindow";
+
+            // Lists all currently existing Windows. Probably including hidden ones.
+            /*  foreach (Window w in dte.Windows)
+                  message += "\nAlso there: " + w.Caption;
+                  */
+
+
+            //nowActivewindow und lastActiveWindow werden weiter oben in "testlistener" gesetzt
+            if (nowActiveWindow != null)
+                message += "\n Derzeit Aktiv nach Event: " + nowActiveWindow;
+            if (lastActiveWindow!= null)
+                message+= "\nletztes aktives nach Event: " + lastActiveWindow;
+            
 
             // Show a message box to prove we were here
             VsShellUtilities.ShowMessageBox(
@@ -115,6 +139,17 @@ namespace PauseTest
                 OLEMSGICON.OLEMSGICON_INFO,
                 OLEMSGBUTTON.OLEMSGBUTTON_OK,
                 OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+        }
+
+        //Windows erlaubt den Zugriff auf die Passenden Events nicht...
+      /*  public class WindowsSaysIshouldnotListen : _dispWindowEvents_WindowActivatedEventHandler
+        {
+
+        }*/
+
+        private void testmethod()
+        {
+
         }
     }
 }
