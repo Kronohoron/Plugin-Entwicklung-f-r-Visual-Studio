@@ -1,1 +1,1 @@
-# Plugin-Entwicklung-fuesr-Visual-Studio
+# Plugin-Entwicklung-fuer-Visual-Studio
