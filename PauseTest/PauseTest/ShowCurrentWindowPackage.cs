@@ -40,6 +40,7 @@ namespace PauseTest
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [Guid(ShowCurrentWindowPackage.PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
+    [ProvideToolWindow(typeof(Frontpannel))]
     public sealed class ShowCurrentWindowPackage : Package
     {
         /// <summary>
@@ -68,6 +69,7 @@ namespace PauseTest
         {
             ShowCurrentWindow.Initialize(this);
             base.Initialize();
+            FrontpannelCommand.Initialize(this);
         }
 
         #endregion

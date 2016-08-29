@@ -110,43 +110,25 @@ namespace PauseTest
         private void MenuItemCallback(object sender, EventArgs e)
         {
 
-            string message;
-            if (dte != null)
-                message = "Active: " + dte.ActiveDocument.ActiveWindow.Caption;
-            else
-                message = "mist";
+            // Get the instance number 0 of our tool window. This window is single instance so this instance
+            // is actually the only one.
+            // The last flag is set to true so that if the tool window does not exists it will be created.
+            ToolWindowPane window = this.package.FindToolWindow(typeof(Frontpannel), 0, true);
+            if ((null == window) || (null == window.Frame))
+            {
+                throw new NotSupportedException("Cannot create tool window");
+            }
 
-            string title = "ShowCurrentWindow";
-
-            // Lists all currently existing Windows. Probably including hidden ones.
-            /*  foreach (Window w in dte.Windows)
-                  message += "\nAlso there: " + w.Caption;
-                  */
-
-
-            //nowActivewindow und lastActiveWindow werden weiter oben in "testlistener" gesetzt
-            if (nowActiveWindow != null)
-                message += "\n Derzeit Aktiv nach Event: " + nowActiveWindow;
-            if (lastActiveWindow!= null)
-                message+= "\nletztes aktives nach Event: " + lastActiveWindow;
-            
-
-            // Show a message box to prove we were here
-            VsShellUtilities.ShowMessageBox(
-                this.ServiceProvider,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            IVsWindowFrame windowFrame = (IVsWindowFrame)window.Frame;
+            Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(windowFrame.Show());
         }
 
-        //Windows erlaubt den Zugriff auf die Passenden Events nicht...
-      /*  public class WindowsSaysIshouldnotListen : _dispWindowEvents_WindowActivatedEventHandler
-        {
+/*       //Windows erlaubt den Zugriff auf die Passenden Events nicht...
+         public class WindowsSaysIshouldnotListen : _dispWindowEvents_WindowActivatedEventHandler
+         {
 
-        }*/
-
+         }
+ */
         private void testmethod()
         {
 
