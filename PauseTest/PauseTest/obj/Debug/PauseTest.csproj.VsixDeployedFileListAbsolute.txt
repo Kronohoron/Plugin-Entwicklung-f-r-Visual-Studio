@@ -8,3 +8,5 @@ C:\Users\win10\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Company\P
 C:\Users\win10\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Company\PauseTest\1.0\\WPFToolkit.dll
 C:\Users\win10\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Company\PauseTest\1.0\\PauseTest.pkgdef
 C:\Users\win10\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Company\PauseTest\1.0\\extension.vsixmanifest
+C:\Users\Krono\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Company\PauseTest\1.0\\system.windows.controls.datavisualization.toolkit.dll
+C:\Users\Krono\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\Company\PauseTest\1.0\\WPFToolkit.dll

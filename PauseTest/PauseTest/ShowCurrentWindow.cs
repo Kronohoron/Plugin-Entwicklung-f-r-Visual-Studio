@@ -5,6 +5,8 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Timers;
+using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Globalization;
 using Microsoft.VisualStudio.Shell;
@@ -22,8 +24,14 @@ namespace PauseTest
     internal sealed class ShowCurrentWindow
     {
         private DTE2 dte;
-        private string nowActiveWindow;
-        private string lastActiveWindow;
+        private Window nowActiveWindow;
+        private Window lastActiveWindow;
+        private DateTime startTime;
+        private DateTime windowOpened;
+        private TimeSpan timeHelper;
+        private List<WindowData> data;
+        private int listIndex;
+
         /// <summary>
         /// Command ID.
         /// </summary>
@@ -63,12 +71,29 @@ namespace PauseTest
 
             dte = Marshal.GetActiveObject("VisualStudio.DTE.14.0") as DTE2;
             dte.Events.WindowEvents.WindowActivated += testlistener;
+
+            data = new List<WindowData>();
+            startTime = windowOpened = DateTime.Now;
+
         }
 
         private void testlistener(Window GotFocus, Window LostFocus)
         {
-            nowActiveWindow = GotFocus.Caption;
-            lastActiveWindow = LostFocus.Caption;
+            nowActiveWindow = GotFocus;
+            lastActiveWindow = LostFocus;
+
+            timeHelper = DateTime.Now - windowOpened;
+            windowOpened = DateTime.Now;
+
+            listIndex = -1;
+
+            //FindIndex returns -1 if no Match was found. This way checking for existence and looking up the index of an Element can be done in one Step.
+            //Searching Lists is a linear Operation, so this will slow down if hundrets of different Windows are opened in one session. 
+            if ((listIndex = data.FindIndex(delegate (WindowData d) { return d.window.Equals(lastActiveWindow); })) < 0)
+                data[listIndex].add(timeHelper);
+            else
+                data.Add(new WindowData(lastActiveWindow, timeHelper));
+
         }
 
         /// <summary>
