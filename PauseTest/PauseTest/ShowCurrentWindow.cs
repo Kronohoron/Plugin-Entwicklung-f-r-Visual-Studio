@@ -89,7 +89,7 @@ namespace PauseTest
 
             //FindIndex returns -1 if no Match was found. This way checking for existence and looking up the index of an Element can be done in one Step.
             //Searching Lists is a linear Operation, so this will slow down if hundrets of different Windows are opened in one session. 
-            if ((listIndex = data.FindIndex(delegate (WindowData d) { return d.window.Equals(lastActiveWindow); })) < 0)
+            if ((listIndex = data.FindIndex( (WindowData d) => { return d.window.Equals(lastActiveWindow); } )) < 0)
                 data[listIndex].add(timeHelper);
             else
                 data.Add(new WindowData(lastActiveWindow, timeHelper));
