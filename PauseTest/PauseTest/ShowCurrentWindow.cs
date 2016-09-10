@@ -77,6 +77,10 @@ namespace PauseTest
 
         }
 
+        public ShowCurrentWindow()
+        {
+        }
+
         private void testlistener(Window GotFocus, Window LostFocus)
         {
             nowActiveWindow = GotFocus;
@@ -94,6 +98,14 @@ namespace PauseTest
             else
                 data.Add(new WindowData(lastActiveWindow, timeHelper));
 
+
+            
+
+        }
+
+        public List<WindowData> getData()
+        {
+            return data;
         }
 
         /// <summary>

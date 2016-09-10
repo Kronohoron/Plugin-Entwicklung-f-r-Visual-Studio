@@ -18,21 +18,28 @@ namespace PauseTest
     {
 
 
+        
+
+
         Timer daTimer;
         DateTime activeT;
         DateTime lastCatch; //  this refers to activeT, not realT because we want to evaluate ov    er the active time, not real time
         bool isPaused;
-
+        Evaluation evaData = new Evaluation();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FrontpannelControl"/> class.
         /// </summary>
         public FrontpannelControl()
         {
+            
             InitializeComponent();
+            this.DataContext = new MainViewModel();
+            
+
         }
 
-       
+
 
         public void init()
         {

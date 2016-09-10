@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\Krono\Desktop\Studium\Plugin entwicklung\Pause\Plugin-Entwicklung-fuer-Visual-Studio\PauseTest\PauseTest\obj\Debug\
+C:\Users\win10\Documents\Visual Studio 2015\Projects\PausePlugin_V2\Plugin-Entwicklung-fuer-Visual-Studio\PauseTest\PauseTest\obj\Debug\
 PauseTest
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 1318877493
 5-2110613361
-7-1993008620
-912036157050
+10-906945005
+104743249931
 FrontpannelControl.xaml;
 
-False
+True
 
