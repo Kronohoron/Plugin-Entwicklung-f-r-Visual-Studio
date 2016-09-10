@@ -35,7 +35,7 @@ namespace PauseTest
             
             InitializeComponent();
             this.DataContext = new MainViewModel();
-            
+            Button.Na
 
         }
 
