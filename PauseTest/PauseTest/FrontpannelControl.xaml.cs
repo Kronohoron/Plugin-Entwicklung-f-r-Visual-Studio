@@ -73,6 +73,22 @@ namespace PauseTest
             listTS.Items.Add(insertLB);
         }
 
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+           /* Blockage daBlock;
+            Window host;
+
+            int waitSecs = 10;
+            host = new Window();
+            daBlock = new Blockage(waitSecs, host);  //  the amount of seconds to wait
+
+            host.Content = daBlock;
+            host.Show();*/
+        }
+
+
         private void startTimer_Click(object sender, RoutedEventArgs e)
         {
             init();

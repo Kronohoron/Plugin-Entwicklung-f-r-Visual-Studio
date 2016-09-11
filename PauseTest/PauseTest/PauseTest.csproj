@@ -51,6 +51,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Blockage.xaml.cs">
+      <DependentUpon>Blockage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frontpannel.cs" />
     <Compile Include="FrontpannelControl.xaml.cs">
       <DependentUpon>FrontpannelControl.xaml</DependentUpon>
@@ -258,6 +261,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Blockage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrontpannelControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

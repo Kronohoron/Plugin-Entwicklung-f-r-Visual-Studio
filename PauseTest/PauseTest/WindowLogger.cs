@@ -16,11 +16,7 @@ namespace PauseTest
         private DateTime windowOpened;
         private TimeSpan timeHelper;
 
-        public ObservableCollection<WindowData> data
-        {
-            get { return data;}
-            private set{ data = value;}
-        }
+        public ObservableCollection<WindowData> data { get; private set; }
 
 
         public WindowLogger()

@@ -390,3 +390,5 @@ C:\Users\Krono\Desktop\Studium\Plugin entwicklung\project\Plugin-Entwicklung-fue
 C:\Users\Krono\Desktop\Studium\Plugin entwicklung\project\Plugin-Entwicklung-fuer-Visual-Studio\PauseTest\PauseTest\obj\Debug\PauseTest.pkgdef
 C:\Users\Krono\Desktop\Studium\Plugin entwicklung\project\Plugin-Entwicklung-fuer-Visual-Studio\PauseTest\PauseTest\obj\Debug\PauseTest.latest.pkgdef
 C:\Users\Krono\Desktop\Studium\Plugin entwicklung\project\Plugin-Entwicklung-fuer-Visual-Studio\PauseTest\PauseTest\obj\Debug\extension.vsixmanifest
+C:\Users\Krono\Desktop\Studium\Plugin entwicklung\project\Plugin-Entwicklung-fuer-Visual-Studio\PauseTest\PauseTest\obj\Debug\Blockage.g.cs
+C:\Users\Krono\Desktop\Studium\Plugin entwicklung\project\Plugin-Entwicklung-fuer-Visual-Studio\PauseTest\PauseTest\obj\Debug\Blockage.baml
