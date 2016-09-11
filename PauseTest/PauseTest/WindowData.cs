@@ -11,26 +11,28 @@ namespace PauseTest
 {
     public class WindowData : INotifyPropertyChanged
     {
+        private TimeSpan _time;
         public TimeSpan time {
             get
             {
-                return time;
+                return _time;
             }
             set
             {
-                time = value;
+                _time = value;
                 Notify("time");
             }
         }
 
+        private Window _window;
         public Window window {
             get
             {
-                return window;
+                return _window;
             }
             set
             {
-                window = value;
+                _window = value;
                 Notify("window"); //just in Case. The Window is never changed once created.
             }
         }
