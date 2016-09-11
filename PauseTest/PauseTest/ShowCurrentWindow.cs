@@ -23,14 +23,6 @@ namespace PauseTest
     /// </summary>
     internal sealed class ShowCurrentWindow
     {
-        private DTE2 dte;
-        private Window nowActiveWindow;
-        private Window lastActiveWindow;
-        private DateTime startTime;
-        private DateTime windowOpened;
-        private TimeSpan timeHelper;
-        private List<WindowData> data;
-        private int listIndex;
 
         /// <summary>
         /// Command ID.
@@ -69,32 +61,9 @@ namespace PauseTest
                 commandService.AddCommand(menuItem);
             }
 
-            dte = Marshal.GetActiveObject("VisualStudio.DTE.14.0") as DTE2;
-            dte.Events.WindowEvents.WindowActivated += testlistener;
-
-            data = new List<WindowData>();
-            startTime = windowOpened = DateTime.Now;
 
         }
 
-        private void testlistener(Window GotFocus, Window LostFocus)
-        {
-            nowActiveWindow = GotFocus;
-            lastActiveWindow = LostFocus;
-
-            timeHelper = DateTime.Now - windowOpened;
-            windowOpened = DateTime.Now;
-
-            listIndex = -1;
-
-            //FindIndex returns -1 if no Match was found. This way checking for existence and looking up the index of an Element can be done in one Step.
-            //Searching Lists is a linear Operation, so this will slow down if hundrets of different Windows are opened in one session. 
-            if ((listIndex = data.FindIndex( (WindowData d) => { return d.window.Equals(lastActiveWindow); } )) < 0)
-                data[listIndex].add(timeHelper);
-            else
-                data.Add(new WindowData(lastActiveWindow, timeHelper));
-
-        }
 
         /// <summary>
         /// Gets the instance of the command.

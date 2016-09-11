@@ -52,7 +52,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Frontpannel.cs" />
-    <Compile Include="FrontpannelCommand.cs" />
     <Compile Include="FrontpannelControl.xaml.cs">
       <DependentUpon>FrontpannelControl.xaml</DependentUpon>
     </Compile>
@@ -61,6 +60,7 @@
     <Compile Include="ShowCurrentWindowPackage.cs" />
     <Compile Include="Watcher.cs" />
     <Compile Include="WindowData.cs" />
+    <Compile Include="WindowLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />

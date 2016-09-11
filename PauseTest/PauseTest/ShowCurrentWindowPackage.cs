@@ -69,7 +69,6 @@ namespace PauseTest
         {
             ShowCurrentWindow.Initialize(this);
             base.Initialize();
-            FrontpannelCommand.Initialize(this);
         }
 
         #endregion

@@ -30,6 +30,7 @@ namespace PauseTest
         public FrontpannelControl()
         {
             InitializeComponent();
+            this.DataContext = new WindowLogger();
         }
 
        
